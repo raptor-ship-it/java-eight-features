@@ -1,4 +1,4 @@
-package com.raptor.functional;
+package com.raptor.optionals;
 
 import com.raptor.model.User;
 import org.junit.jupiter.api.Assertions;
