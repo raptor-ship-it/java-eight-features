@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
 
+import java.lang.annotation.Documented;
 import java.util.Optional;
 
 public class OptionalTests {
@@ -23,6 +24,11 @@ public class OptionalTests {
     @DisplayName("using_isPresent")
     public void returnFalseWhenOptionalIsEmpty() {
         Optional<User> user = Optional.empty();
+        /**
+         * returns boolean if Optional is not empty,
+         * without any action as a result.
+         * <em>compare with ifPresent...</em>
+         */
         Assertions.assertFalse(user.isPresent());
 
         return;
@@ -46,13 +52,16 @@ public class OptionalTests {
     }
 
     @Test
+    @DisplayName("ifPresent_action")
     public void printUserDetailsIfAndOnlyIfNonEmpty() {
         final User user = new User();
         user.setFirstName("kuldip");
         user.setLastName("bajwa");
+        /* --- check if Option is not empty then execute action --- */
         Optional.of(user).ifPresent((u) -> System.out.print(u));
         Assertions.assertEquals(user, Optional.of(user).get(), "user not found");
 
+        return;
     }
 
 }
